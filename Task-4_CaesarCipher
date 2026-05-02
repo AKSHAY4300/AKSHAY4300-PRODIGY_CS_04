@@ -1,0 +1,28 @@
+import datetime
+
+def log_input(text):
+    with open("keylog.txt", "a") as file:
+        timestamp = datetime.datetime.now()
+        file.write(f"{timestamp} : {text}\n")
+
+
+def main():
+    print("=" * 50)
+    print("              SAFE KEY INPUT LOGGER")
+    print("=" * 50)
+
+    print("Type something (type 'exit' to stop)\n")
+
+    while True:
+        user_input = input("Enter text: ")
+
+        if user_input.lower() == "exit":
+            print("Logging stopped.")
+            break
+
+        log_input(user_input)
+        print("✅ Logged safely")
+
+
+if __name__ == "__main__":
+    main()
